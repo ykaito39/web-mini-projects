@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="utf-8">
+        <title>Block break</title>
+        <style>
+            * {padding:0; margin: 0;}
+            canvas {
+                background: #222;
+                display: block; /* blockレベル要素 */
+                margin:0 auto;
+            }
+        </style>
+    </head>
+    <body>
+        <canvas id="block_break" width="480px" height="320px"></canvas>
+        <script>
+            let canvas = document.getElementById("block_break");
+            let ctx = canvas.getContext("2d");
+
+            let x = canvas.width/2;
+            let y = canvas.height-30;
+
+            function draw(){
+                ctx.clearRect(0, 0, canvas.width, canvas.height);
+                ctx.beginPath(); //描画を開始する
+                ctx.rect(x, y, 50, 50); //x, y, w, h, Math.PI*2で円
+                ctx.fillStyle = "#00FF33";
+                ctx.fill(); //塗りつぶし
+                //ct.closePath(); //fillを使えば、closePathする必要はない
+                x += 2;
+                y += -2;
+            }
+            
+            setInterval(draw, 10); //関数を指定の[ms]単位で実行する
+
+
+            //以下はテスト中
+
+            //箱を動かす
+            window.addEventListener("keydown", keydown); //第2引数はバインド先
+            window,addEventListener("keyup", keyup);
+
+            let d = 0;
+            let u = 0;
+            let r = 0;
+            let l = 0;
+            
+            function keydown(event){
+                if(event.keyCode==38){ctx.ArrowUp=true;console.log(d++);}
+                if(event.keyCode==40){ctx.ArrowDown=true;console.log(u++);}
+                if(event.keyCode==39){ctx.ArrowRight=true;console.log(r++);}
+                if(event.keyCode==37){ctx.ArrowLeft=true;console.log(l++);}
+            }
+            function keyup(event){
+                if(event.keyCode==38){ctx.ArrowUp=false;}
+                if(event.keyCode==40){ctx.ArrowDown=false;}
+                if(event.keyCode==39){ctx.ArrowRight=false;}
+                if(event.keyCode==37){ctx.ArrowLeft=false;}
+            }
+
+        </script>
+    </body>
+</html>
