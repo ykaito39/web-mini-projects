@@ -6,6 +6,7 @@ The project made for my study.
   
 # Installation  
 Download index.html and open a web blowser.  
+Or access [Github pages](https://ykaito39.github.io/web-mini-projects/moment/).  
   
 # Lisence  
 This project is licensed under the MIT License.  
