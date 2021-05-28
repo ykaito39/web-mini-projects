@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <script src="https://cdn.jsdelivr.net/npm/vue@2.6.12/dist/vue.js"></script>
+    <link href="https://unpkg.com/tailwindcss@^2/dist/tailwind.min.css" rel="stylesheet">
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/moment.js/2.10.6/moment.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/moment.js/2.10.6/locale/ja.js"></script>
+    <title>時計</title>
+    <style>
+        body{
+            display: flex; /* flexbox */
+            justify-content:center;
+            align-items: center;
+        }
+        #bg{
+            display:flex;
+            justify-content:center;
+            align-items: center;
+            height: 100vh; /* Viewpointで高さ100% */
+        }
+        #clock{
+            width: 200px;
+            height: 100px;
+            padding: 10 auto;
+            margin: 10 auto;
+        }
+        #d{
+            font-size: 20px;
+            transition: 0.9s;
+        }
+        #t{
+            font-size:50px;
+        }
+    </style>
+</head>
+<body>
+    <div id="bg">
+        <div id="clock">
+            <h1 id="t">  </h1>
+            <h2 id="d">  </h2>
+        </div>
+    </div>
+    <script>
+        let d = document.getElementById("d")
+        let t = document.getElementById("t")
+
+        let updateTime = function(){
+            d.innerHTML = moment().format("YYYY.MM.D")+" JST"
+            t.innerHTML = moment().format("HH:mm:ss")
+        }
+
+        setInterval(updateTime, 100)
+    </script>
+</body>
+</html>
