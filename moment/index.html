@@ -3,44 +3,69 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <script src="https://cdn.jsdelivr.net/npm/vue@2.6.12/dist/vue.js"></script>
-    <link href="https://unpkg.com/tailwindcss@^2/dist/tailwind.min.css" rel="stylesheet">
     <script src="https://cdnjs.cloudflare.com/ajax/libs/moment.js/2.10.6/moment.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/moment.js/2.10.6/locale/ja.js"></script>
-    <title>時計</title>
+    <link rel="preconnect" href="https://fonts.gstatic.com">
+    <link href="https://fonts.googleapis.com/css2?family=Source+Sans+Pro:wght@300&display=swap" rel="stylesheet">
+
+    <title>A simple clock</title>
     <style>
         body{
+            appearance: none;
             display: flex; /* flexbox */
             justify-content:center;
             align-items: center;
+            font-family: "Source Sans Pro", sans-serif;
+            flex-wrap: wrap;
         }
         #bg{
             display:flex;
             justify-content:center;
             align-items: center;
-            height: 100vh; /* Viewpointで高さ100% */
+            height: 90vh; /* Viewpointで高さ90% */
+            width: 100%;
         }
         #clock{
-            width: 200px;
-            height: 100px;
+            width: 170px;
+            height: auto;
             padding: 10 auto;
             margin: 10 auto;
         }
         #d{
             font-size: 20px;
+            font-weight: 400;
             transition: 0.9s;
+            height: 20%;
+            margin: 5px auto;
         }
         #t{
             font-size:50px;
+            font-weight: 500;
+            height: 80%;
+            margin: 5px auto;
+        }
+        #footer{
+            align-items: flex-end;
+            width: 30%;
+            text-align: center;
+        }
+        #footer>a{
+            font-weight: 700;
+            color: darkturquoise;
+            text-decoration: none;
         }
     </style>
 </head>
 <body>
     <div id="bg">
         <div id="clock">
-            <h1 id="t">  </h1>
-            <h2 id="d">  </h2>
+            <p id="t">  </p>
+            <p id="d">  </p>
         </div>
+    </div>
+    <div id="footer">
+        <hr/>
+        <a href="https://github.com/ykaito39">Github:ykaito39</a>
     </div>
     <script>
         let d = document.getElementById("d")
